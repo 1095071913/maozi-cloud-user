@@ -16,26 +16,30 @@
 package com.maozi.system.permission.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
-import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
 import com.maozi.base.AbstractBaseDomain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * 角色权限关系
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
 @TableName("system_role_permission")
-@TableComment("角色权限关系")
 public class RolePermissionDo extends AbstractBaseDomain {
-	
-	@Column(value = "role_id",comment = "角色ID")
+
+	/**
+	 * 角色ID
+	 */
 	private Long roleId;
-	
-	@Column(value = "permission_id",comment = "权限ID")
+
+	/**
+	 * 权限ID
+	 */
 	private Long permissionId;
 	
 }

@@ -17,12 +17,10 @@
 
 package com.maozi.system.user.api;
 
-import com.github.yulichang.base.MPJBaseService;
 import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
-import com.maozi.system.user.domain.UserDo;
 import java.util.List;
 
-public interface UserService extends MPJBaseService<UserDo> {
+public interface UserService {
 	
 	<D> D getByUsername(String username,Class<D> clazz,String ... colums);
 	

@@ -16,34 +16,40 @@
 package com.maozi.system.user.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
-import com.gitee.sunchenbin.mybatis.actable.annotation.Index;
-import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
 import com.maozi.base.AbstractBaseNameDomain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * 用户
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
 @TableName("system_user")
-@TableComment("用户")
 public class UserDo extends AbstractBaseNameDomain {
-	
-	@Index
-	@Column(value = "username",comment = "账号")
+
+	/**
+	 * 账号
+	 */
 	private String username;
-	
-	@Column(value = "password",comment = "密码")
+
+	/**
+	 * 密码
+	 */
 	private String password;
-	
-	@Column(value = "icon",comment = "图标")
+
+	/**
+	 * 图标
+	 */
 	private String icon;
-	
-	@Column(value= "client_id",comment = "客户端ID")
+
+	/**
+	 * 客户端ID
+	 */
 	private Long clientId;
 	
 }

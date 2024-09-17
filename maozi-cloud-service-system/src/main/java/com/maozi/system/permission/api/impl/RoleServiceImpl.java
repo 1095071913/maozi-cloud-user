@@ -1,7 +1,9 @@
 package com.maozi.system.permission.api.impl;
 
 import com.github.yulichang.toolkit.MPJWrappers;
+import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.api.impl.BaseServiceImpl;
+import com.maozi.base.error.code.SystemErrorCode;
 import com.maozi.oauth.token.api.rpc.v1.RpcOauthTokenServiceV1;
 import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.api.RoleService;
@@ -15,7 +17,7 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RoleServiceImpl extends BaseServiceImpl<RoleMapper,RoleDo,Void> implements RoleService{
+public class RoleServiceImpl extends BaseServiceImpl<RoleMapper,RoleDo,AbstractBaseDtomain, SystemErrorCode> implements RoleService{
 	
 	@Resource(name = "userServiceImpl")
 	protected UserService userService;

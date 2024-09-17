@@ -20,7 +20,9 @@ package com.maozi.system.permission.api.impl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.api.impl.BaseServiceImpl;
+import com.maozi.base.error.code.SystemErrorCode;
 import com.maozi.system.permission.api.PermissionService;
 import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.domain.RolePermissionDo;
@@ -32,22 +34,8 @@ import java.util.stream.Collectors;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
-/**	
- * 
- *  Specifications：功能
- * 
- *  Author：彭晋龙
- * 
- *  Creation Date：2021-12-18:16:32:34
- *
- *  Copyright Ownership：xiao mao zi
- * 
- *  Agreement That：Apache 2.0
- * 
- */
-
 @Service
-public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermissionMapper,RolePermissionDo,Void> implements RolePermissionService {
+public class RolePermissionServiceImpl extends BaseServiceImpl<RolePermissionMapper,RolePermissionDo,AbstractBaseDtomain, SystemErrorCode> implements RolePermissionService {
 	
 	@Resource(name = "permissionServiceImpl")
 	private PermissionService permissionService;

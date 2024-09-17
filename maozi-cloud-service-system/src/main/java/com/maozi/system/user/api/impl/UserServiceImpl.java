@@ -20,7 +20,9 @@ package com.maozi.system.user.api.impl;
 
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.api.impl.BaseServiceImpl;
+import com.maozi.base.error.code.SystemErrorCode;
 import com.maozi.oauth.client.api.rpc.v1.RpcClientServiceV1;
 import com.maozi.oauth.token.api.rpc.v1.RpcOauthTokenServiceV1;
 import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
@@ -29,7 +31,6 @@ import com.maozi.system.permission.api.RolePermissionService;
 import com.maozi.system.permission.api.UserRoleService;
 import com.maozi.system.user.api.UserService;
 import com.maozi.system.user.domain.UserDo;
-import com.maozi.system.user.dto.global.dto.SystemUser;
 import com.maozi.system.user.dto.v1.platform.UserSaveUpdateParam;
 import com.maozi.system.user.mapper.UserMapper;
 import java.util.List;
@@ -41,7 +42,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,SystemUser> implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,AbstractBaseDtomain, SystemErrorCode> implements UserService {
 	
 	@Value("${security.oauth2.client.client-id}")
 	protected String clientId;
@@ -148,7 +149,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper,UserDo,SystemUse
 		return list(wrapper,ClientUserParam::new);
 		
 	}
-	
+
 	@Override
 	public void unbind(Long id) {
 		userRoleService.userUnbind(id);

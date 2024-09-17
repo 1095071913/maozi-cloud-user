@@ -22,7 +22,6 @@ import com.maozi.base.enums.Status;
 import com.maozi.base.param.PageParam;
 import com.maozi.base.result.PageResult;
 import com.maozi.common.result.AbstractBaseResult;
-import com.maozi.lock.annotation.Lock;
 import com.maozi.oauth.token.dto.platform.dto.OauthToken;
 import com.maozi.oauth.token.dto.platform.param.ClientParam;
 import com.maozi.oauth.token.dto.platform.param.ClientUserParam;
@@ -41,7 +40,6 @@ import com.maozi.system.user.vo.v1.platform.UserListVo;
 public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserServiceV1 {
 
 	@Override
-	@Lock
 	public AbstractBaseResult<OauthToken> restGetToken(UserAccountParam param) throws Exception {
 		
 		TokenInfoParam tokenParam = TokenInfoParam.builder().clientId(clientId).clientSecret(clientSecret).username(param.getUsername()).password(param.getPassword()).build();
@@ -52,7 +50,7 @@ public class RestUserServiceImplV1 extends UserServiceImpl implements RestUserSe
 
 	@Override
 	public AbstractBaseResult<PageResult<UserListVo>> restList(PageParam<UserListParam> pageParam) {
-		return success(listRelation(pageParam, UserListVo::new));
+		return success(listRelation(pageParam, UserListVo.class));
 	}
 	
 	@Override

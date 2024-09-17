@@ -3,7 +3,9 @@ package com.maozi.system.permission.api.impl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.yulichang.toolkit.MPJWrappers;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
+import com.maozi.base.AbstractBaseDtomain;
 import com.maozi.base.api.impl.BaseServiceImpl;
+import com.maozi.base.error.code.SystemErrorCode;
 import com.maozi.system.permission.api.RoleService;
 import com.maozi.system.permission.api.UserRoleService;
 import com.maozi.system.permission.domain.UserRoleDo;
@@ -15,7 +17,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper,UserRoleDo,Void> implements UserRoleService {
+public class UserRoleServiceImpl extends BaseServiceImpl<UserRoleMapper,UserRoleDo,AbstractBaseDtomain, SystemErrorCode> implements UserRoleService {
 	
 	@Resource(name = "roleServiceImpl")
 	private RoleService roleService;

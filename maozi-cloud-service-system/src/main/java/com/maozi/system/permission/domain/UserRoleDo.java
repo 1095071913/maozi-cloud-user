@@ -16,29 +16,30 @@
 package com.maozi.system.permission.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
-import com.gitee.sunchenbin.mybatis.actable.annotation.Index;
-import com.gitee.sunchenbin.mybatis.actable.annotation.TableComment;
 import com.maozi.base.AbstractBaseDomain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * 用户角色关系
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
-@TableName("system_user_role") 
-@TableComment("用户角色关系")
+@TableName("system_user_role")
 public class UserRoleDo extends AbstractBaseDomain {
-	
-	@Index
-	@Column(value = "role_id",comment = "角色ID")
+
+	/**
+	 * 角色ID
+	 */
 	private Long roleId;
-	
-	@Index
-	@Column(value = "user_id",comment = "用户ID")
+
+	/**
+	 * 用户ID
+	 */
 	private Long userId;
 	
 }

@@ -20,20 +20,6 @@ package com.maozi.system.permission.api;
 import java.util.Collection;
 import java.util.List;
 
-/**	
- * 
- *  Specifications：功能
- * 
- *  Author：彭晋龙
- * 
- *  Creation Date：2021-12-18:16:32:34
- *
- *  Copyright Ownership：xiao mao zi
- * 
- *  Agreement That：Apache 2.0
- * 
- */
-
 public interface PermissionService {
 	
 	boolean has(Long id);
